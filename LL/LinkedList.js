@@ -52,6 +52,8 @@ class LinkedList {
     return this;
   }
 
+  // Removing from last
+
   pop() {
     //if no value is present in LL
     if (!this.head || this.length === 0) return undefined; // if there is no items
@@ -72,6 +74,8 @@ class LinkedList {
     }
     return temp;
   }
+
+  // Adding in the front
 
   unshift(value) {
     const newNode = new Node(value);
