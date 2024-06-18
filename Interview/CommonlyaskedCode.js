@@ -360,7 +360,7 @@ function x() {
 x();
 /************deppClone***********/
 
-function deepClone(object) {}
+function deepClone(object) { }
 
 var newObject = {};
 for (var key in object) {
@@ -574,129 +574,80 @@ if (subsets.length > 0) {
 // </html>
 
 
- let x = NaN;
+let x = NaN;
 let y = NaN;
- 
+
 console.log(x === y)
 
 var v1 = 10;
-(function(){
-    console.log(v1); // undefined     
-    var v1 = 20;
-    console.log(v1);    // 20
+(function () {
+  console.log(v1); // undefined     
+  var v1 = 20;
+  console.log(v1);    // 20
 })();
 console.log(v1);         // 10
 var v1 = 30;
 
 var v1 = 10;
-(function(){
-    console.log(v1); //10
-    v1 = 20;  
-    console.log(v1);     //20   
+(function () {
+  console.log(v1); //10
+  v1 = 20;
+  console.log(v1);     //20   
 })();
 console.log(v1); //20
-var v1 = 30; 
+var v1 = 30;
 
 const arr = [1, [2, 3], [4, [5, 6]]];
 // [1, 2, 3, 4, 5, 6]
 
-function flatTheArray(arr1){
-let myArray = [];
-for(let i =0;i<arr1.length;i++){
-if(Array.isArray(arr1[i])){
-myArray = myArray.concat(flatTheArray(arr1[i]))
-}else{
-myArray.push( arr1[i])
+function flatTheArray(arr1) {
+  let myArray = [];
+  for (let i = 0; i < arr1.length; i++) {
+    if (Array.isArray(arr1[i])) {
+      myArray = myArray.concat(flatTheArray(arr1[i]))
+    } else {
+      myArray.push(arr1[i])
 
-}
-}
-return myArray
+    }
+  }
+  return myArray
 }
 
 var a = flatTheArray(arr)
-console.log(a) 
+console.log(a)
 
 /* map(value=>value/2) */
- 
-Array.prototype.myMap= function(callback,arg){
-const result = [];
-for(let i =0;i<this.length;i++){
-result.push(callback.call(arg,this[i],i,this))
-}
-console.log(result);
-return result
+
+Array.prototype.myMap = function (callback, arg) {
+  const result = [];
+  for (let i = 0; i < this.length; i++) {
+    result.push(callback.call(arg, this[i], i, this))
+  }
+  console.log(result);
+  return result
 }
 
-var number = [1,2,3,4];
+var number = [1, 2, 3, 4];
 
-const multiplyBy2 =  number.myMap(value=>value*2)
-console.log(multiplyBy2); 
+const multiplyBy2 = number.myMap(value => value * 2)
+console.log(multiplyBy2);
 
-Function.prototype.myBind = function(contex,...bindArg){
-const orginalInstance = this;
-return function(...args){
- console.log('ARGS', ...args)
-const returnArgs = [...bindArg,...args]
-if(this instanceof orginalInstance){
-return new orignalInstance(...args)
-}
-return orginalInstance.apply(contex, returnArgs)
-}
-}
-
-function foo(fName,lName){
-return fName + " "+ lName;
+Function.prototype.myBind = function (contex, ...bindArg) {
+  const orginalInstance = this;
+  return function (...args) {
+    console.log('ARGS', ...args)
+    const returnArgs = [...bindArg, ...args]
+    if (this instanceof orginalInstance) {
+      return new orignalInstance(...args)
+    }
+    return orginalInstance.apply(contex, returnArgs)
+  }
 }
 
-var a = {fName:"Shashnak", lName: "Shekhar"}
+function foo(fName, lName) {
+  return fName + " " + lName;
+}
+
+var a = { fName: "Shashnak", lName: "Shekhar" }
 var b = foo.myBind(a)
 console.log(b())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
